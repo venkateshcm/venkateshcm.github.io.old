@@ -1,14 +1,44 @@
 ---
 layout: default
-title: Jekyll Boilerplate
 ---
 
-
-<h1>{{ page.title }}</h1>
-
+<div class="col-md-8">
+<ol class="items">
 {% for post in site.posts %}
-
-    {{ post.date | date: "%B %e, %Y" }}
-    <a href="{{ post.url }}">{{ post.title }}</a>
-
+    	<li class="item">
+    		<div class="article-header">
+    			<a class="ribbon date " href="{{ post.url }}">
+				  <div class="top ribbon-piece">{{ post.date | date: "%b" }}</div>
+  				  <div class="bottom ribbon-piece">{{ post.date | date: "%e" }}</div>
+  				  <div class="tail">
+    				  <div class="left ribbon-piece"></div>
+    				  <div class="right ribbon-piece"></div>
+  				  </div>
+				</a>
+				<h1 class="title entry-title">
+					<a href="{{ post.url }}">{{ post.title }}</a>
+				</h1>
+			</div>
+			<div class='item-content'>
+    		   {{post.content}}
+    	    </div>
+    	</li>
 {% endfor %}
+</ol>
+</div>
+<div class="col-md-3">
+<ol class="items">
+   	<li class="item left-nav">
+   		<b>Popular Blogs</b>
+   		<br/>
+      <div class="left-nav-links">
+        <ol>
+{% for post in site.posts %}
+<li class="left-nav-links"> <a href="{{ post.url }}">{{ post.title }}</a></li>
+{% endfor %}
+      </ol>
+      </div>
+   	</li>
+</ol>
+</div>
+</div>
